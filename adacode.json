@@ -1,0 +1,124 @@
+{
+  "id": "pdfcraft",
+  "nama": "PdfCraft",
+  "deskripsi": "Pembaca & penyunting PDF ala Acrobat — ditulis dari nol dengan Rust. Gabung, pisah, isi formulir, tanda tangan, redaksi, OCR — dan bisa disetir agen AI lewat MCP.",
+  "kategori": "Produktivitas",
+  "tag": "Work Efficiency",
+  "sumber": "https://github.com/storytold/pdfcraft",
+  "lisensi": "MIT OR Apache-2.0",
+  "sorot": [
+    "Gabung, pisah, putar, susun ulang halaman; isi & buat formulir; komentar & tanda tangan digital",
+    "Redaksi sungguhan, watermark, header/footer, OCR halaman pindaian (model OCR kecil ikut, offline)",
+    "175 alat MCP — agen AI adaCODE bisa membaca, menyunting, dan mengekspor PDF di folder kerja",
+    "Mode portabel: semua setelan di folder app, tak menulis ke AppData"
+  ],
+  "perkiraan": {
+    "disk_mb": 175,
+    "ram_mb": 250,
+    "catatan": "Unduhan 85 MB (zip portabel resmi, SHA-256 diverifikasi); terpasang ±175 MB. RAM perkiraan, belum diukur."
+  },
+  "ikon": "pdfcraft.png",
+  "gambar": "gambar.jpg",
+  "versi_manifes": 1,
+  "butuh_gpu": false,
+  "bisa_pindah_vps": false,
+  "os_didukung": [
+    "win32"
+  ],
+  "app_minimal": "0.2.4",
+  "prasyarat": [],
+  "pasang": [
+    {
+      "aksi": "log",
+      "pesan": "Mengunduh PdfCraft 0.13.0 (±85 MB)…"
+    },
+    {
+      "aksi": "shell",
+      "perintah_windows": "curl -L --fail -o pdfcraft.zip https://github.com/storytold/pdfcraft/releases/download/v0.13.0/pdfcraft-0.13.0-windows-x64-portable.zip"
+    },
+    {
+      "aksi": "log",
+      "pesan": "Memeriksa keaslian berkas (SHA-256)…"
+    },
+    {
+      "aksi": "shell",
+      "perintah_windows": "powershell -NoProfile -ExecutionPolicy Bypass -Command \"if((Get-FileHash pdfcraft.zip -Algorithm SHA256).Hash -ne '60c3fcb28548f3ab09e332c0cc5388f17e38d2c3ccbbe9f1a2c7080844387629'){Write-Host 'SHA-256 tidak cocok - unduhan ditolak'; Remove-Item pdfcraft.zip; exit 1}\""
+    },
+    {
+      "aksi": "log",
+      "pesan": "Membongkar PdfCraft ke folder app…"
+    },
+    {
+      "aksi": "shell",
+      "perintah_windows": "\"%SystemRoot%\\System32\\tar.exe\" -xf pdfcraft.zip && xcopy /e /y /i /q pdfcraft-0.13.0-windows-x64-portable app && rmdir /s /q pdfcraft-0.13.0-windows-x64-portable && del /q pdfcraft.zip"
+    },
+    {
+      "aksi": "log",
+      "pesan": "PdfCraft siap. Setelan tersimpan di app\\PdfCraftData (mode portabel)."
+    }
+  ],
+  "jalan": {
+    "perintah_windows": "app\\pdfcraft.exe",
+    "tanpa_url": true
+  },
+  "perbarui": [
+    {
+      "aksi": "log",
+      "pesan": "Memperbarui PdfCraft ke 0.13.0 (±85 MB) — setelan dipertahankan…"
+    },
+    {
+      "aksi": "shell",
+      "perintah_windows": "curl -L --fail -o pdfcraft.zip https://github.com/storytold/pdfcraft/releases/download/v0.13.0/pdfcraft-0.13.0-windows-x64-portable.zip"
+    },
+    {
+      "aksi": "log",
+      "pesan": "Memeriksa keaslian berkas (SHA-256)…"
+    },
+    {
+      "aksi": "shell",
+      "perintah_windows": "powershell -NoProfile -ExecutionPolicy Bypass -Command \"if((Get-FileHash pdfcraft.zip -Algorithm SHA256).Hash -ne '60c3fcb28548f3ab09e332c0cc5388f17e38d2c3ccbbe9f1a2c7080844387629'){Write-Host 'SHA-256 tidak cocok - unduhan ditolak'; Remove-Item pdfcraft.zip; exit 1}\""
+    },
+    {
+      "aksi": "log",
+      "pesan": "Membongkar PdfCraft ke folder app…"
+    },
+    {
+      "aksi": "shell",
+      "perintah_windows": "\"%SystemRoot%\\System32\\tar.exe\" -xf pdfcraft.zip && xcopy /e /y /i /q pdfcraft-0.13.0-windows-x64-portable app && rmdir /s /q pdfcraft-0.13.0-windows-x64-portable && del /q pdfcraft.zip"
+    }
+  ],
+  "setel_ulang": [
+    {
+      "aksi": "log",
+      "pesan": "Mengosongkan setelan & autosave PdfCraft."
+    },
+    {
+      "aksi": "folder",
+      "kosongkan": "app/PdfCraftData"
+    }
+  ],
+  "catatan": {
+    "sumber_binari": "Zip portabel resmi rilis v0.13.0 dari GitHub storytold/pdfcraft; SHA-256 dicocokkan dengan SHA256SUMS.txt rilis yang sama (60c3fcb28548f3ab09e332c0cc5388f17e38d2c3ccbbe9f1a2c7080844387629).",
+    "satu_folder": "portable.txt di sebelah pdfcraft.exe membuat PdfCraft menyimpan semua di app\\PdfCraftData dan tidak menulis ke %APPDATA%/%LOCALAPPDATA%.",
+    "perbarui": "xcopy menimpa berkas program saja; data pengguna tak ada di zip sehingga utuh.",
+    "mcp": "Bidang \"mcp\": adaCODE App (>= 0.3.52) menulis apps/pdfcraft/.mcp.json; adaVIBE menyambungkan server \"adalocal-pdfcraft\" ke tiap sesi (akar = folder proyek sesi) dan adaGENTIC memakainya lewat lokal_mcp_alat/lokal_mcp_panggil (akar = ~/adaLOCAL). @folder_kerja@ diisi app, bukan server. Di luar akar ditolak (\"automation path rejected\") — teruji 25 Okt.",
+    "ai_bawaan": "Lapisan AI Craft (craft-ai-integrations) masih draf & belum terhubung ke app — AI masuk lewat agen adaCODE (MCP), bukan model bawaan.",
+    "os": "Pilot hanya Windows x64. Linux & Mac tersedia di hulu, belum diuji.",
+    "tar": "tar.exe bawaan Windows dipanggil dgn jalur lengkap: GNU tar (Git for Windows di PATH) menolak zip."
+  },
+  "populer": 0,
+  "unggulan": false,
+  "ditambahkan": "2026-10-25",
+  "mcp": {
+    "perintah_windows": "{{folder_app}}\\app\\pdfcraft-cli.exe",
+    "args": [
+      "mcp",
+      "--automation-read-root",
+      "@folder_kerja@",
+      "--automation-write-root",
+      "@folder_kerja@"
+    ],
+    "jelas": "Baca & sunting PDF di folder kerja: ambil teks, gabung/pisah/putar halaman, watermark, isi formulir, redaksi, ekspor gambar — 175 alat PdfCraft.",
+    "petunjuk": "Cara pakai: (1) doc_open {path} lebih dulu — hasilnya memberi nomor `doc` yang dipakai alat lain. (2) Sunting dengan alat doc_*/page_*/form_*/redact_* memakai `doc` itu. (3) Simpan dengan doc_save {doc, path} ke nama BARU kecuali pengguna minta menimpa; tanpa doc_save perubahan hilang. (4) Untuk memeriksa hasil: text_extract {doc} atau page_render {doc, page}. Jalur berkas harus di dalam folder kerja; jalur lain ditolak."
+  }
+}
