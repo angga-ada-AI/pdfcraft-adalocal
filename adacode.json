@@ -13,9 +13,9 @@
     "Mode portabel: semua setelan di folder app, tak menulis ke AppData"
   ],
   "perkiraan": {
-    "disk_mb": 175,
+    "disk_mb": 272,
     "ram_mb": 250,
-    "catatan": "Unduhan 85 MB (zip portabel resmi, SHA-256 diverifikasi); terpasang ±175 MB. RAM perkiraan, belum diukur."
+    "catatan": "Unduhan 127 MB (zip portabel resmi, SHA-256 diverifikasi); terpasang ±272 MB (isi zip terurai, diukur 24 Nov 2026). RAM perkiraan, belum diukur."
   },
   "ikon": "pdfcraft.png",
   "gambar": "gambar.jpg",
@@ -30,11 +30,11 @@
   "pasang": [
     {
       "aksi": "log",
-      "pesan": "Mengunduh PdfCraft 0.13.0 (±85 MB)…"
+      "pesan": "Mengunduh PdfCraft 0.22.0 (±127 MB)…"
     },
     {
       "aksi": "shell",
-      "perintah_windows": "curl -L --fail -o pdfcraft.zip https://github.com/storytold/pdfcraft/releases/download/v0.13.0/pdfcraft-0.13.0-windows-x64-portable.zip"
+      "perintah_windows": "curl -L --fail -o pdfcraft.zip https://github.com/storytold/pdfcraft/releases/download/v0.22.0/pdfcraft-0.22.0-windows-x64-portable.zip"
     },
     {
       "aksi": "log",
@@ -42,7 +42,7 @@
     },
     {
       "aksi": "shell",
-      "perintah_windows": "powershell -NoProfile -ExecutionPolicy Bypass -Command \"if((Get-FileHash pdfcraft.zip -Algorithm SHA256).Hash -ne '60c3fcb28548f3ab09e332c0cc5388f17e38d2c3ccbbe9f1a2c7080844387629'){Write-Host 'SHA-256 tidak cocok - unduhan ditolak'; Remove-Item pdfcraft.zip; exit 1}\""
+      "perintah_windows": "powershell -NoProfile -ExecutionPolicy Bypass -Command \"if((Get-FileHash pdfcraft.zip -Algorithm SHA256).Hash -ne '193394d15b923510e917912c0142b38119a8d4369b30693d97ef086444e9e314'){Write-Host 'SHA-256 tidak cocok - unduhan ditolak'; Remove-Item pdfcraft.zip; exit 1}\""
     },
     {
       "aksi": "log",
@@ -50,7 +50,7 @@
     },
     {
       "aksi": "shell",
-      "perintah_windows": "\"%SystemRoot%\\System32\\tar.exe\" -xf pdfcraft.zip && xcopy /e /y /i /q pdfcraft-0.13.0-windows-x64-portable app && rmdir /s /q pdfcraft-0.13.0-windows-x64-portable && del /q pdfcraft.zip"
+      "perintah_windows": "\"%SystemRoot%\\System32\\tar.exe\" -xf pdfcraft.zip && xcopy /e /y /i /q pdfcraft-0.22.0-windows-x64-portable app && rmdir /s /q pdfcraft-0.22.0-windows-x64-portable && del /q pdfcraft.zip"
     },
     {
       "aksi": "log",
@@ -64,11 +64,11 @@
   "perbarui": [
     {
       "aksi": "log",
-      "pesan": "Memperbarui PdfCraft ke 0.13.0 (±85 MB) — setelan dipertahankan…"
+      "pesan": "Memperbarui PdfCraft ke 0.22.0 (±127 MB) — setelan dipertahankan…"
     },
     {
       "aksi": "shell",
-      "perintah_windows": "curl -L --fail -o pdfcraft.zip https://github.com/storytold/pdfcraft/releases/download/v0.13.0/pdfcraft-0.13.0-windows-x64-portable.zip"
+      "perintah_windows": "curl -L --fail -o pdfcraft.zip https://github.com/storytold/pdfcraft/releases/download/v0.22.0/pdfcraft-0.22.0-windows-x64-portable.zip"
     },
     {
       "aksi": "log",
@@ -76,7 +76,7 @@
     },
     {
       "aksi": "shell",
-      "perintah_windows": "powershell -NoProfile -ExecutionPolicy Bypass -Command \"if((Get-FileHash pdfcraft.zip -Algorithm SHA256).Hash -ne '60c3fcb28548f3ab09e332c0cc5388f17e38d2c3ccbbe9f1a2c7080844387629'){Write-Host 'SHA-256 tidak cocok - unduhan ditolak'; Remove-Item pdfcraft.zip; exit 1}\""
+      "perintah_windows": "powershell -NoProfile -ExecutionPolicy Bypass -Command \"if((Get-FileHash pdfcraft.zip -Algorithm SHA256).Hash -ne '193394d15b923510e917912c0142b38119a8d4369b30693d97ef086444e9e314'){Write-Host 'SHA-256 tidak cocok - unduhan ditolak'; Remove-Item pdfcraft.zip; exit 1}\""
     },
     {
       "aksi": "log",
@@ -84,7 +84,7 @@
     },
     {
       "aksi": "shell",
-      "perintah_windows": "\"%SystemRoot%\\System32\\tar.exe\" -xf pdfcraft.zip && xcopy /e /y /i /q pdfcraft-0.13.0-windows-x64-portable app && rmdir /s /q pdfcraft-0.13.0-windows-x64-portable && del /q pdfcraft.zip"
+      "perintah_windows": "\"%SystemRoot%\\System32\\tar.exe\" -xf pdfcraft.zip && xcopy /e /y /i /q pdfcraft-0.22.0-windows-x64-portable app && rmdir /s /q pdfcraft-0.22.0-windows-x64-portable && del /q pdfcraft.zip"
     }
   ],
   "setel_ulang": [
@@ -98,7 +98,7 @@
     }
   ],
   "catatan": {
-    "sumber_binari": "Zip portabel resmi rilis v0.13.0 dari GitHub storytold/pdfcraft; SHA-256 dicocokkan dengan SHA256SUMS.txt rilis yang sama (60c3fcb28548f3ab09e332c0cc5388f17e38d2c3ccbbe9f1a2c7080844387629).",
+    "sumber_binari": "Zip portabel resmi rilis v0.22.0 dari GitHub storytold/pdfcraft; SHA-256 dicocokkan dengan SHA256SUMS.txt rilis yang sama (193394d15b923510e917912c0142b38119a8d4369b30693d97ef086444e9e314).",
     "satu_folder": "portable.txt di sebelah pdfcraft.exe membuat PdfCraft menyimpan semua di app\\PdfCraftData dan tidak menulis ke %APPDATA%/%LOCALAPPDATA%.",
     "perbarui": "xcopy menimpa berkas program saja; data pengguna tak ada di zip sehingga utuh.",
     "mcp": "Bidang \"mcp\": adaCODE App (>= 0.3.52) menulis apps/pdfcraft/.mcp.json; adaVIBE menyambungkan server \"adalocal-pdfcraft\" ke tiap sesi (akar = folder proyek sesi) dan adaGENTIC memakainya lewat lokal_mcp_alat/lokal_mcp_panggil (akar = ~/adaLOCAL). @folder_kerja@ diisi app, bukan server. Di luar akar ditolak (\"automation path rejected\") — teruji 25 Okt.",
